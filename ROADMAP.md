@@ -1,0 +1,1 @@
+* TL schema for serialization of TL schemas. (https://core.telegram.org/mtproto/TL-tl)
