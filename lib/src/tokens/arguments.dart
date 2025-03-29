@@ -21,17 +21,15 @@ final class TermArgument extends Arguments {
 final class SimpleArguments extends Arguments {
   const SimpleArguments(
     this.identifiers,
-    this.optionalCombinatorParameter,
     this.type,
   );
 
   /// List of field's identifier.
   final List<FullIdentifier> identifiers;
-  final bool optionalCombinatorParameter;
-  final TypeTerm type;
+  final TermArgument type;
 
   @override
-  String toString() => '{${identifiers.join(' ')}:${optionalCombinatorParameter ? '!' : ''}$type}';
+  String toString() => '{${identifiers.join(' ')}:$type}';
 }
 
 final class ConditionDefinition {
@@ -59,14 +57,12 @@ final class ConditionalArgument extends Arguments {
   const ConditionalArgument(
     this.typeIdentifier,
     this.condition,
-    this.optionalCombinatorParameter,
     this.conditionType,
   );
 
   final FullIdentifier typeIdentifier;
   final ConditionDefinition? condition;
-  final bool optionalCombinatorParameter;
-  final TypeTerm conditionType;
+  final TermArgument conditionType;
 
   @override
   String toString() {
@@ -104,7 +100,7 @@ final class MultiplicityArgument extends Arguments {
     if (multiplicity != null)
       buffer.write('$multiplicity*');
 
-    buffer.write('[${arguments.join(' ')}]');
+    buffer.write('[ ${arguments.join(' ')} ]');
 
     return buffer.toString();
   }

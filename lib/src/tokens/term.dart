@@ -65,6 +65,9 @@ final class NatConstTerm extends Term {
   const NatConstTerm(this.natConstant);
 
   final int natConstant;
+
+  @override
+  String toString() => natConstant.toString();
 }
 
 final class BareTerm extends Term {
@@ -73,7 +76,7 @@ final class BareTerm extends Term {
   final Term term;
 
   @override
-  String toString() => '%${super.toString()}';
+  String toString() => '%$term';
 }
 
 final class GenericTerm extends Term {

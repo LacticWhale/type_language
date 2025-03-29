@@ -1,3 +1,13 @@
+import 'package:petitparser/core.dart';
+
+import 'src/parser.dart';
+import 'src/tokens.dart';
+
 export 'src/parser.dart' show TypeLanguageDefinition;
-// ignore: undefined_hidden_name
-export 'src/tokens.dart' hide _;
+export 'src/tokens.dart';
+
+Parser<TypeLanguageProgram> parseTypeLanguageDefinition() {
+  final parser = const TypeLanguageDefinition().build<TypeLanguageProgram>();
+  
+  return parser;
+}

@@ -66,7 +66,15 @@ final class CombinatorDeclaration extends Declaration {
   final ResultType resultType;
 
   @override
-  String toString() => '$identifier ${optionalArguments.join(' ')} ${arguments.join(' ')} = $resultType;';
+  String toString() => '${[
+    identifier,
+    if (optionalArguments.isNotEmpty) 
+      optionalArguments.join(' '),
+    if (arguments.isNotEmpty) 
+      arguments.join(' '),
+    '=',
+    resultType,
+  ].join(' ')};';
 }
 
 
@@ -91,7 +99,11 @@ final class SimplePartialAppTypeDeclaration extends PartialAppTypeDeclaration {
   final List<SubExpression> subExpressions;
 
   @override
-  String toString() => '$typeIdentifier ${subExpressions.join(' ')};';
+  String toString() => '${[
+    typeIdentifier,
+    if (subExpressions.isNotEmpty)
+      subExpressions.join(' '),
+  ].join(' ')};';
 }
 
 final class GenericPartialAppTypeDeclaration extends PartialAppTypeDeclaration {
@@ -118,7 +130,11 @@ class PartialAppCombinatorDeclaration extends PartialAppDeclaration {
   final List<SubExpression> subExpressions;
 
   @override
-  String toString() => '$identifier ${subExpressions.join(' ')};';
+    String toString() => '${[
+    identifier,
+    if (subExpressions.isNotEmpty)
+      subExpressions.join(' '),
+  ].join(' ')};';
 }
 
 final class FinalDeclaration extends Declaration {

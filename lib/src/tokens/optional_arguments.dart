@@ -14,5 +14,5 @@ final class OptionalArguments {
   final TypeExpression type;
 
   @override
-  String toString() => '{ ${identifiers.join(' ')}: $type }';
+  String toString() => '{${identifiers.join(' ')}:$type}';
 }
